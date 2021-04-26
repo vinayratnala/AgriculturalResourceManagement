@@ -1,0 +1,33 @@
+﻿body {
+    font-family: sans-serif;
+    background-color: lightgrey;
+}
+
+.MyCenter {
+    overflow: hidden;
+    background-color: red;
+}
+
+    .MyCenter a {
+        float: left;
+        display: block;
+        color: lightgray;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        .MyCenter a:hover {
+            background-color: red;
+            color: black;
+        }
+
+        .MyCenter a.active {
+            background-color: black;
+            color: white;
+        }
+
+    .MyCenter .icon {
+        display: none;
+    }

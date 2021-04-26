@@ -1,0 +1,157 @@
+﻿@model AgriculturalResourceManagement.Models.Categories
+@{
+    ViewData["Title"] = "Categories";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale = 1" />
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+    <script src="MyJavascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+    <script src="~/js/Custom.js"></script>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <title> Categories </title>
+</head>
+<body>
+    @* Code for navigation bar for this categories page*@
+    <div style="left:0px; width:0px; height:0px;">
+        <img src="~/img/download.jpg" alt="USF_LOGO" height="60" width="100" />
+    </div>
+    <h2 style="text-align:center; font-family:sans-serif;">             
+        Farm Resource Management
+    </h2>
+    <div class="MyCenter" id="myCenter" style="font-family:sans-serif; align-content:center;">
+        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Categories">Category</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Reports">Report</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="States">States</a>
+
+
+        <a asp-area="" asp-controller="Home" asp-action="Chart">Chart</a>
+        <a asp-area="" asp-controller="Home" asp-action="AboutUS">AboutUs</a>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+
+    </div>
+
+    <div>
+        <h2>Categories</h2>
+
+        <p>
+            The Information gathered from the study is classified into numerous classifications dependent on factors like Typology, Economy, Deals, age, and so on The classifications are sub-characterized into numerous divisions. Every classification is given a short ID with a depiction expressing the capacity of the Class. For example, Monetary Class (Sal) is isolated into classes like $1,000,000 and the sky is the limit from there; $500,000 to $999,999 and so on Along these lines, different classifications have their sub-classes to additionally characterize the information.
+
+            Classifications are meta labels that give setting to the information. The Information gathered from the overview is ordered into various classifications dependent on factors like Typology, Economy, Deals, age, and so forth The classifications are sub-ordered into numerous divisions. Every class is given a short ID with a depiction expressing the capacity of the Classification. For example, Financial Class (Sal) is partitioned into classes like $1,000,000 and the sky is the limit from there; $500,000 to $999,999 etc.Also, for Ranch Asset District, the information is ordered into classes like Heartland, Northern Bow, and so on Likewise, different classes have their subclasses to additionally characterize the information.
+
+        </p>
+        <br />
+        <div style="text-align:center">
+            <b>Categories are displayed in the table below</b>
+        </div>
+        <br /> <br />
+
+        <table class="MyTable">
+            <tr>
+                
+                <th style="background-color: #263C52 ">Category Sequence </th>
+                <th style="background-color: #263C52 ">Category ID </th>
+                <th style="background-color: #263C52 ">Category Name </th>
+                <th style="background-color: #263C52 ">Category Description </th>
+            </tr>
+
+            @foreach (var item in Model.data)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sequence)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+    </tr>            }
+
+        </table>
+        <br />
+
+        <br />
+        <div style="text-align:center">
+            <a id="dbopt" asp-controller="Home" asp-action="PopulateCategories">
+                <input type="button" class="MyButton" value="Save Categories">
+            </a>
+        </div>
+
+        <style>
+            .Mybutton {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 12px;
+            }
+        </style>
+
+
+        <br />
+        <p>
+            Out of all the above classifications, Homestead Asset Locales, Ranch Creation Areas, USDA Land Asset Districts, NASS Harvest Announcing Regions
+
+            are utilized to order areas in the US
+        </p>
+        <div>
+            <b>Maps to show Category types</b>
+            <p>
+                This arrangement of guides helps information clients envision and better comprehend the topographical extension and level of conglomeration by which numerous ARMS information are summed up. For instance, the ARMS web information apparatus presents ranch monetary appraisals amassed to Cultivate Asset Districts, which don't follow State limits.
+
+                Guides beneath show the various ways information are frequently summed up.
+            </p>
+
+            <p>
+                <b>U.S. Farm Resource Regions:</b>
+            <p>
+                Ranch asset areas are characterized utilizing ranch creation locales, land asset locales, crop detailing regions,
+
+                furthermore, ranch qualities. The areas are assigned at the region level and in this manner don't for the most part follow State limits.
+            </p>
+            <img src="~/img/FarmResourceRegions.jpg" alt="Farm Resource Regions" height="500" width="800" />
+            </p>
+
+            
+
+            <p>
+                <b> USDA Land Resource Regions: </b>
+            <p>
+                In constructing the ERS production regions, analysts identified where areas with
+                similar types of farms intersected with areas of similar physiographic, soil, and climatic traits, as reflected in USDA's Land Resource Regions.
+            </p>
+            <img src="~/img/land_resources_regions.jpg" alt="Land Resource Regions" height="500" width="800" />
+            </p>
+
+            
+        </div>
+
+
+
+    
+</body>
+<script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+</script>

@@ -1,0 +1,33 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+
+html {
+    position: relative;
+    font: 14px;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+body, html {
+    height: 100%;
+    font-family: sans-serif;
+    background-color: lightgray;
+}
+
+
+
+.ftr {
+    position: relative;
+    bottom: 0;
+    height: 60px;
+}
+
+.ftrtext {
+    text-align: center;
+}

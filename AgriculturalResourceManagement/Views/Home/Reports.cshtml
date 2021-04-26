@@ -1,0 +1,162 @@
+﻿@model AgriculturalResourceManagement.Models.Reports
+@{
+    ViewData["Title"] = "Reports";
+}
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale = 1" />
+        @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+        <script src="MyJavascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+        <script src="~/js/Custom.js"></script>
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+        <title> Reports </title>
+    </head>
+<body>
+
+    <div style="left:0px; width:0px; height:0px;">
+        <img src="~/img/download.jpg" alt="USF_LOGO" height="60" width="100" />
+    </div>
+    <h2 style="text-align:center; font-family:sans-serif;">
+        Farm Resource Management System
+    </h2>
+    <div class="MyCenter" id="myCenter" style="font-family:sans-serif; align-content:center;">
+        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Categories">Category</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Reports">Report</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="States">States</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Chart">Chart</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="AboutUS">AboutUs</a>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+
+    </div>
+    <div>
+
+        <h2>Reports</h2>
+        <hr />
+
+        <p>
+            USDA's Monetary Exploration Administration (trama centers) is making information from USDA's Agrarian Asset The board Overview (ARMS) accessible through an Application Programming Interface (Programming interface) to more readily serve clients.
+        </p>
+
+        <h5>Fetch Survey Data</h5>
+        <p>
+            The overview information can be brought from the study information Programming interface(API) utilizing report type.
+            The report name from the underneath rundown can be given as a key to get review information of a specific report
+            type by entering the report type in the content box given and snap on the Get Study Information button.
+            For instance, enter "Farm Business Balance Sheet" to get the study information of report type Government Installments.
+            <br />
+            <h5>List Of Report Types:</h5>
+            <li>Government Payments</li>
+            <li>Farm Business Income Statement</li>
+            <li>Income Statement</li>
+            <li>Farm Business Balance Sheet</li>
+            <li>Structural Characteristics</li>
+            <li>Farm Business Debt Repayment Capacity</li>
+            <li>Government Payments</li>
+            <li>Operator Household Income</li>
+            <li>Operator Household Balance Sheet</li>
+
+        </p>
+        @using (Html.BeginForm("SurveyData", "Home", FormMethod.Post))
+        {
+
+        <label for="text">Get survey data of report type:</label>
+        <input type="text" class="form-control" id="text" name="test" style="width:auto; border-radius:12px; height:30px; align-content:center">
+        <br />
+        <div>
+
+            <input type="submit" class="MyButton" value="GetSurveyData">
+
+        </div>
+
+        <style>
+            .Mybutton {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 12px;
+            }
+        </style>
+
+
+        }
+
+        <br />
+        <div style="text-align:center">
+            <b>Reports are displayed in the table below</b>
+            <div>
+                <br /> <br />
+
+                <table class="MyTable">
+                    <tr>
+                        <th style="background-color: #263C52 " ;>Report Id </th>
+                        <th style="background-color: #263C52" ;>Report Name </th>
+                        <th style="background-color: #263C52" ;>Description Name </th>
+
+
+                    </tr>
+
+                    @foreach (var item in Model.data)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.desc)
+                        </td>
+                    </tr>
+                    }
+                </table>
+
+                <br /> <br />
+                <script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+                </script>
+
+                <div style="text-align:center">
+                    <a id="dbopt" asp-controller="Home" asp-action="PopulateReports">
+                        <input type="button" class="MyButton" value="Save Reports">
+                    </a>
+                </div>
+
+                <style>
+                    .Mybutton {
+                        background-color: #4CAF50;
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+                </style>
+
+            </div>
+</body>
