@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgriculturalResourceManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191123003622_InitialCreate")]
+    [Migration("20210426160238_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.1")
+                .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -101,6 +101,24 @@ namespace AgriculturalResourceManagement.Migrations
                     b.HasIndex("Reportsstatus");
 
                     b.ToTable("Report");
+                });
+
+            modelBuilder.Entity("AgriculturalResourceManagement.Models.Report1", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Report1");
                 });
 
             modelBuilder.Entity("AgriculturalResourceManagement.Models.Reports", b =>

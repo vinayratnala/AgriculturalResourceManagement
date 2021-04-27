@@ -14,5 +14,6 @@ namespace AgriculturalResourceManagement.DataAccess
         public DbSet<State> State { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Report1> Report1 { get; set; }
     }
 }

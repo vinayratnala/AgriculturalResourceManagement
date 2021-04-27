@@ -7,6 +7,20 @@ namespace AgriculturalResourceManagement.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Report1",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(nullable: true),
+                    desc = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Report1", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Timing",
                 columns: table => new
                 {
@@ -220,6 +234,9 @@ namespace AgriculturalResourceManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "Report");
+
+            migrationBuilder.DropTable(
+                name: "Report1");
 
             migrationBuilder.DropTable(
                 name: "State");
